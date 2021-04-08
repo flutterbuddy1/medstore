@@ -1,7 +1,5 @@
 <?php
-session_start();
 include "header.php";
-echo $_SESSION['aid'];
 ?>
 <!-- Start of product container -->
 <div class="content">
@@ -64,9 +62,9 @@ echo $_SESSION['aid'];
                   </td>
                   <td class="td-actions text-right">
                     <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                      <a href="update_product.php?id=<?php echo $data['medicine_id']; ?>" >
-                    <i class="tim-icons icon-pencil"></i>
-                  </a>
+                    <a href="update_product.php?id=<?php echo $data['medicine_id']; ?>" >
+                      <i class="tim-icons icon-pencil"></i>
+                    </a>
                     </button>
                   </td>
                 </tr>
