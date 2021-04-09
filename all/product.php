@@ -62,7 +62,7 @@ include "header.php";
                   </td>
                   <td class="td-actions text-right">
                     <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">
-                    <a href="update_product.php?id=<?php echo $data['medicine_id']; ?>" >
+                    <a href="update_product.php?medicine_id=<?php echo $data['medicine_id']; ?>" >
                       <i class="tim-icons icon-pencil"></i>
                     </a>
                     </button>

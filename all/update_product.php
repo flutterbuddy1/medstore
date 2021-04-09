@@ -2,8 +2,9 @@
 include "header.php";
 include '../db.php';
 $medicine_id = $_GET['medicine_id'];
-$select_query = "SELECT * FROM medicines";
+$select_query = "SELECT * FROM medicines WHERE medicine_id = '$medicine_id'";
 $select_query_run = mysqli_query($con, $select_query);
+$select_query_rows = mysqli_num_rows($select_query_run);
 $data = mysqli_fetch_assoc($select_query_run);
 ?>
 <!-- Start of product container -->
@@ -45,14 +46,14 @@ $data = mysqli_fetch_assoc($select_query_run);
 								<tbody>
 									<tr>
 										<td>
-											<form method="post" action="update_product.php">
+											<form method="post" action="update_details.php">
 												<div class="form-group">
 													<label>Medicine Name</label>
 													<input type="text" class="form-control" placeholder="Medicine Name" value="<?php echo $data['medicine_name']; ?>" name="medicine_name" required>
 												</div>
 												<div class="form-group">
 													<label>Description</label>
-													<textarea placeholder="Description" value="<?php echo $data['medicine_description'];?>"  class="form-control" name="medicine_description" required></textarea>
+													<textarea placeholder="Description" class="form-control" name="medicine_description" required><?php echo $data['medicine_description'];?></textarea>
 												</div>
 												<div class="row">
 													<div class="col-md-6">
@@ -84,19 +85,4 @@ $data = mysqli_fetch_assoc($select_query_run);
 	<!-- End of product container -->
 	<?php
 	include "footer.php";
-	?>
-	<?php
-	include "../db.php";
-	if (isset($_POST['update'])) {
-		$medicine_id = $_POST['id'] ?? "";
-		$medicine_name = $_POST['medicine_name'] ?? "";
-		$medicine_description = $_POST['medicine_description'] ?? "";
-		$medicine_mrp = $_POST['medicine_mrp'] ?? "";
-		$medicine_inventory = $_POST['medicine_inventory'] ?? "";
-		$update_qry = "UPDATE medicines SET medicine_name = '$medicine_name',medicine_description = '$medicine_description',medicine_mrp = '$medicine_mrp',medicine_inventory = '$medicine_inventory' WHERE id = '$medicine_id')";
-		$update_qry_run = mysqli_query($con, $update_qry);
-		if($update_qry_run) {
-			echo "successful";
-		}
-	}
 	?>
