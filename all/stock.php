@@ -13,9 +13,9 @@ include "header.php";
           <div class="table-responsive">
             <?php
             include "../db.php";
-            $query = "SELECT * FROM medicines";
-            if($run = mysqli_query($con, $query)) {
-            if(mysqli_num_rows($run) > 0) {
+            $select_qry = "SELECT * FROM medicines";
+            if($select_qry_run = mysqli_query($con, $select_qry)) {
+            if(mysqli_num_rows($select_qry_run) > 0) {
             ?>
             <table class="table tablesorter " id="">
               <thead class=" text-primary">
@@ -35,7 +35,7 @@ include "header.php";
                 </tr>
               </thead>
               <?php
-              while($data = mysqli_fetch_assoc($run)) {
+              while($data = mysqli_fetch_assoc($select_qry_run)) {
               ?>
               <tbody>
                 <tr>
@@ -59,7 +59,7 @@ include "header.php";
             </table>
             <?php
             // Free result set
-            mysqli_free_result($run);
+            mysqli_free_result($select_qry_run);
             } else {
             echo "No records matching your query were found.";
             }

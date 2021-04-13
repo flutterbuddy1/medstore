@@ -24,7 +24,7 @@ include "header.php";
               </a>
               <a class="dropdown-item" href="delete_product.php">
                 <label class="btn btn-sm btn-primary btn-simple active" id="0">
-                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block">Delete Products</span>
+                  <span class="d-none d-sm-block d-md-block d-lg-block d-xl-block" name="delete">Delete Products</span>
                   <span class="d-block d-sm-none">
                     <i class="tim-icons icon-single-02"></i>
                   </span>
@@ -39,7 +39,7 @@ include "header.php";
         $select_qry_run = mysqli_query($con, $select_qry);
         $row = mysqli_num_rows($select_qry_run);
         if ($row > 0) {
-        while ($data = mysqli_fetch_assoc($select_qry_run)) {
+        while ($data = mysqli_fetch_array($select_qry_run)) {
         ?>
         <div class="card-body ">
           <div class="table-full-width table-responsive">
@@ -49,7 +49,7 @@ include "header.php";
                   <td width="40px">
                     <div class="form-check">
                       <label class="form-check-label">
-                        <input class="form-check-input" name="<?php echo $data['medicine_id']; ?>" type="checkbox">
+                        <input class="form-check-input" name="check_item[]" type="checkbox" value=<?php echo $data['medicine_id'];?>>
                         <span class="form-check-sign">
                           <span class="check"></span>
                         </span>
@@ -58,7 +58,7 @@ include "header.php";
                   </td>
                   <td>
                     <p class="title"><?php echo $data['medicine_name']; ?></p>
-                    <p class="text-muted"><?php echo $data['medicine_description']?></p>
+                    <p class="text-muted"><?php echo $data['medicine_description'];?></p>
                   </td>
                   <td class="td-actions text-right">
                     <button type="button" rel="tooltip" title="" class="btn btn-link" data-original-title="Edit Task">

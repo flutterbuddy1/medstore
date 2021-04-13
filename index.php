@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['aid'])) {
+if(isset($_SESSION['admin_id'])) {
 header('location:all/dashboard.php');
 }
 ?>
@@ -87,10 +87,9 @@ include ('db.php');
 if(isset($_POST['signin'])) {
 $username = $_POST['username'];
 $password = $_POST['password'];
-$query = "SELECT * FROM admin WHERE username ='$username' AND password ='$password'";
-$run = mysqli_query($con, $query);
-// $row = mysqli_num_rows($run);
-if($run) {
+$select_qry = "SELECT * FROM admin WHERE username ='$username' AND password ='$password'";
+$select_qry_run = mysqli_query($con, $select_qry);
+if($select_qry_run) {
 ?>
 <script type="text/javascript">
 alert ('Sorry! Invalid Credential :(');
@@ -99,7 +98,7 @@ window.open('index.php','_self');
 <?php
 } else {
 $id = rand(1,99999);
-$_SESSION['aid'] = $id ;
+$_SESSION['admin_id'] = $id ;
 header('location:all/dashboard.php');
 }
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['aid'])) {
+if(isset($_SESSION['admin_id'])) {
 } else {
   header('location:../index.php');
 }
