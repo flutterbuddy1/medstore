@@ -56,7 +56,7 @@ if(isset($_SESSION['admin_id'])) {
               </a>
             </li>
             <li>
-              <a href="./map.html">
+              <a href="purchase.php">
                 <i class="tim-icons icon-pin"></i>
                 <p>Purchase</p>
               </a>
