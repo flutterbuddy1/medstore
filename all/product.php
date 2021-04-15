@@ -2,7 +2,7 @@
 include "header.php";
 ?>
 <!-- Start of product container -->
-<div class="content">
+<form class="content" action="delete_product.php">
   <div class="row">
     <div class="col-lg-12 col-md-12">
       <div class="card card-tasks">
@@ -77,7 +77,7 @@ include "header.php";
           </div>
         </div>
       </div>
-    </div>
+    </form>
     <!-- End of product container -->
     <?php
     include "footer.php";
